@@ -18,7 +18,7 @@ while (1) {
     let e = document.getElementsByName('q' + (num_questions + 1))
     if (e.length == 0) break
     ++num_questions
-    if (e.length < 1) window.alert('q' + num_questions + ' has less than 2 answers.')
+    if (e.length < 2) window.alert('q' + num_questions + ' has less than 2 answers.')
 };
 // Checks that questions are present. Also states the amount of questions in the quiz to console.
 if (num_questions === 0) window.alert('No question names (q1, q2, q3, etc.');
