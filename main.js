@@ -18,7 +18,7 @@ while (1) {
     let e = document.getElementsByName('q' + (num_questions + 1))
     if (e.length == 0) break
     ++num_questions
-    if (e.length < 2) window.alert('q' + num_questions + ' has less than 2 answers.')
+    if (e.length < 1) window.alert('q' + num_questions + ' has less than 2 answers.')
 };
 // Checks that questions are present. Also states the amount of questions in the quiz to console.
 if (num_questions === 0) window.alert('No question names (q1, q2, q3, etc.');
@@ -55,7 +55,7 @@ function select() {
         }
         // If choice is still false, tell the code that the quiz is incomplete.
         if (choice === false) {
-            let incomplete = true
+            incomplete = true
             break
         }
         // Tells console what answer the user chose for each question e.g., q1: answer = a2
@@ -66,7 +66,7 @@ function select() {
             let w = weights[q - 1][answer - 1][s - 1]
             // Alerts the user if the weight of the user's selection could not be found.
             if (typeof w === 'undefined') window.alert('error: could not find weight for q' + q + 'a' + answer + 'r' + s)
-            scores[s - 1] += w
+            score[s - 1] += w
             // Displays the weights towards each possible result based on the user's selection.
             if (verbose) console.log('score[' + s + '] += ' + w)
         }
@@ -83,10 +83,10 @@ function select() {
         let pick = 0
         for (let s = 1; s <= num_selections; ++s) {
             // Outputs the total score for each result to console.
-            if (verbose) console.log('score[' + s + '] == ' + scores[s - 1])
-            if (scores[s - 1] > maxscore) {
+            if (verbose) console.log('score[' + s + '] == ' + score[s - 1])
+            if (score[s - 1] > maxscore) {
                 pick = s
-                maxscore = scores[s - 1]
+                maxscore = score[s - 1]
             }
         }
         // Outputs pick to console (the result with the highest maxscore).
